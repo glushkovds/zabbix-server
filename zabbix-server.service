@@ -1,0 +1,11 @@
+[Unit]
+Description=Zabbix server
+Requires=docker.service
+After=docker.service
+[Service]
+Restart=always
+WorkingDirectory=/var/zabbix
+ExecStart=/usr/bin/docker-compose up
+ExecStop=/usr/bin/docker-compose down
+[Install]
+WantedBy=multi-user.target
